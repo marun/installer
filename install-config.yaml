@@ -1,5 +1,5 @@
 apiVersion: v1
-baseDomain: redhat.com
+baseDomain: tt.testing
 compute:
 - architecture: amd64
   hyperthreading: Enabled
@@ -12,9 +12,16 @@ controlPlane:
   name: master
   platform: {}
   replicas: 1
+imageContentSources:
+- mirrors:
+  - registry.tt.testing:5000/ocp/openshift4
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - registry.tt.testing:5000/ocp/openshift4
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
 metadata:
   creationTimestamp: null
-  name: test-cluster
+  name: test1
 networking:
   clusterNetwork:
   - cidr: 10.128.0.0/14
@@ -28,7 +35,42 @@ platform:
   libvirt:
     URI: qemu+tcp://192.168.122.1/system
     network:
-      if: mybridge
+      if: tt0
 publish: External
-pullSecret: 
-sshKey: 
+pullSecret: '{"auths":{"registry.tt.testing:5000":{"auth":"YWRtaW46YWRtaW4=","email":"me@maru.ca"}}}'
+sshKey: |
+  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDenbJ2XPPOFhggpLvpT0r054IjbNQXBtUEJL+PpGu5wK1PA7c/aALGs6IeZ8wIR0foQzbkcfagv5vcqg98GigmMvVtG2EI6q2t0FEvHHP8yfBbf1wq05wt2FjRRHvoWkAoyw8oGK/suPuzQDZtqhbSKtxXla8WBaHMa35m8Z7Cz05owQYiu8bg9kCdnZgnvhX9HDuZ9guZsRW2a6WlhSIx6/XlefuVLF1EsZvjY8qG3SzH0MxrM2OJLwO/l+wQflDGQmcvpO2X897rgREM0u0VC1efLXZNihILE6nsePCP/5nKwUSUBury6lIyAlnh43jsCOf+worviQeCZLPPvfP6j89qsJGM1wnt3fy1AmqppzTutIloq8j5lYpQCCYyKbDUF//MtOjvyjj4GpBNfXM1D+9xOrIWWj7PziOe60xpoBVKvMfRyQ0DosR93mfQkfU8SpyIaOcA1O8xaBE3hIcbO67Vw9fyGTX9VOLp7pqVauc7sxqdMHtzFdq+gOqupW0= maru@obs
+additionalTrustBundle: |
+  -----BEGIN CERTIFICATE-----
+  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
+  nfQ24zyi+E3pBEnNFlmw/Mzy4Q==
+  -----END CERTIFICATE-----

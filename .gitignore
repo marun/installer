@@ -1,1 +1,6 @@
 /bin/
+/installer-image.iso
+/installer-image.iso.bak
+/mydir/
+/nohup.out
+/out.json

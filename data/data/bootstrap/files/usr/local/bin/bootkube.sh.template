@@ -388,8 +388,9 @@ then
 fi
 
 echo "Going to reboot"
+
 # TODO: reoobt!!!
-shutdown -r +1 "Bootstrap completed, server is going to reboot."
+#shutdown -r +1 "Bootstrap completed, server is going to reboot."
 
 
 {{else}}

@@ -15,6 +15,7 @@ function restart_kubelet {
     sleep 10
   done
   systemctl daemon-reload
+  # Why is this required?
   systemctl restart kubelet
 }
 function approve_csr {

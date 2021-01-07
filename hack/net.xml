@@ -5,11 +5,11 @@
   <bridge name='tt0' stp='on' delay='0'/>
   <mtu size='1500'/>
   <mac address='52:54:00:e0:8d:fe'/>
-  <domain name='redhat.com'/>
+  <domain name='test1.tt.testing' localOnly='yes'/>
   <dns enable='yes'>
     <host ip='192.168.126.10'>
-      <hostname>api.test-cluster.redhat.com</hostname>
-      <hostname>api-int.test-cluster.redhat.com</hostname>
+      <hostname>api.test1.tt.testing</hostname>
+      <hostname>api-int.test1.tt.testing</hostname>
     </host>
   </dns>
   <ip family='ipv4' address='192.168.126.1' prefix='24'>
@@ -19,4 +19,3 @@
     </dhcp>
   </ip>
 </network>
-
