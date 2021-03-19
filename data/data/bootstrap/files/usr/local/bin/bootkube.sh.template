@@ -197,6 +197,9 @@ then
 	cp kube-controller-manager-bootstrap/cpc-config /etc/kubernetes/bootstrap-configs/cluster-policy-controller-config.yaml
 	cp kube-controller-manager-bootstrap/bootstrap-manifests/* bootstrap-manifests/
 	cp kube-controller-manager-bootstrap/manifests/* manifests/
+    # Copy the service account signing keypair for use by the
+    # bootstrap controller manager and apiserver.
+	cp kube-controller-manager-bootstrap/tls/* tls/
 
 	touch kube-controller-manager-bootstrap.done
 fi

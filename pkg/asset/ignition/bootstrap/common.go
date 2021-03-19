@@ -141,7 +141,6 @@ func (a *Common) Dependencies() []asset.Asset {
 		&tls.KubeletServingCABundle{},
 		&tls.MCSCertKey{},
 		&tls.RootCA{},
-		&tls.ServiceAccountKeyPair{},
 		&releaseimage.Image{},
 		new(rhcos.Image),
 	}
@@ -520,7 +519,6 @@ func (a *Common) addParentFiles(dependencies asset.Parents) {
 		&tls.KubeletCSRSignerCertKey{},
 		&tls.KubeletServingCABundle{},
 		&tls.MCSCertKey{},
-		&tls.ServiceAccountKeyPair{},
 		&tls.JournalCertKey{},
 	} {
 		dependencies.Get(asset)
